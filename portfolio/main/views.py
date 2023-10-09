@@ -2,7 +2,7 @@ from typing import Any
 from django.shortcuts import render
 from django.contrib import messages
 
-from .models import( UserProfile )
+from .models import( UserProfile, portfolio)
 
 
 from django.views import generic
