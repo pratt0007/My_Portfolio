@@ -7,6 +7,13 @@ from ckeditor.fields import RichTextField\
 
 
 class skill(models.Model):
+    name = models.CharField(max_length=20. blank = True, null = true)
+    score = models.IntegerField(default= 80 , balnk = True , null = True)
+    image = models.FileField(blank = True , null = True , upload_to="skills")
+    is_key_skill = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 class UserProfile(models.Model):
 
