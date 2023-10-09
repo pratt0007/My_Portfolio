@@ -16,7 +16,7 @@ class IndexView(generic.TemplateView):
     
 
 class PortfolioView(generic.ListView):
-	model = Portfolio
+	model = portfolio
 	template_name = "main/portfolio.html"
 	paginate_by = 10
 

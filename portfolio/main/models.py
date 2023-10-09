@@ -39,12 +39,12 @@ class contactprofile(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-class Portfolio(models.Model):
+class portfolio(models.Model):
 
-    class Meta:
-        verbose_name_plural = 'Portfolio Profiles'
-        verbose_name = 'Portfolio'
-        ordering = ["name"]
+    # class Meta:
+    #     verbose_name_plural = 'Portfolio Profiles'
+    #     verbose_name = 'Portfolio'
+    #     ordering = ["name"]
     date = models.DateTimeField(blank=True, null=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
