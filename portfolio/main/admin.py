@@ -7,5 +7,5 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 @admin.register(skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ('id' , 'name' , score)
-    
+    list_display = ('id' , 'name' , 'score')
+
