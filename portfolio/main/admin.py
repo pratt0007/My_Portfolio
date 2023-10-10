@@ -14,11 +14,11 @@ class SkillAdmin(admin.ModelAdmin):
 class MediaAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
 
-@admin.register(Portfolio)
+@admin.register(portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = ('id','name','is_active')
     readonly_fields = ('slug',)
 
-@admin.register(Certificate)
+@admin.register(certificate)
 class CertificateAdmin(admin.ModelAdmin):
     list_display = ('id','name')
