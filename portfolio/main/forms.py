@@ -1,7 +1,7 @@
 from django import forms
 from .models import contactprofile
 
-class contactform(form.ModelForm):
+class contactform(forms.ModelForm):
 
     name = forms.CharField(max_length=100, required=True,
 		widget=forms.TextInput(attrs={
@@ -25,5 +25,5 @@ class contactform(form.ModelForm):
 
 	
     class Meta:
-        model = ContactProfile
+        model = contactprofile
         fields = ('name', 'email', 'message',)
