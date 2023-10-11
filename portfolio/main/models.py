@@ -96,3 +96,47 @@ class certificate(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class Blog(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Blog Profiles'
+        verbose_name = 'Blog'
+        ordering = ["timestamp"]
+
+    timestamp = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=200, blank=True, null=True)
+    name = models.CharField(max_length=200, blank=True, null=True)
+    description = models.CharField(max_length=500, blank=True, null=True)
+    body = RichTextField(blank=True, null=True)
+    slug = models.SlugField(null=True, blank=True)
+    image = models.ImageField(blank=True, null=True, upload_to="blog")
+    is_active = models.BooleanField(default=True)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+        super(Blog, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f"/blog/{self.slug}"
+
+class Testimonial(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Testimonials'
+        verbose_name = 'Testimonial'
+        ordering = ["name"]
+
+    thumbnail = models.ImageField(blank=True, null=True, upload_to="testimonials")
+    name = models.CharField(max_length=200, blank=True, null=True)
+    role = models.CharField(max_length=200, blank=True, null=True)
+    quote = models.CharField(max_length=500, blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
