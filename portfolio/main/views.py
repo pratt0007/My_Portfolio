@@ -14,20 +14,17 @@ class IndexView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-		
-		
-		
-		testimonials = Testimonial.objects.filter(is_active=True)
-		certificates = certificate.objects.filter(is_active=True)
-		blogs = Blog.objects.filter(is_active=True)
-		portfolio = portfolio.objects.filter(is_active=True)
-		
-		context["testimonials"] = testimonials
-		context["certificates"] = certificates
-		context["blogs"] = blogs
-		context["portfolio"] = portfolio
-		return context
-    
+        testimonials = Testimonial.objects.filter(is_active=True)
+        certificates = certificate.objects.filter(is_active=True)
+        blogs = Blog.objects.filter(is_active=True)
+        portfolio = portfolio.objects.filter(is_active=True)
+        
+        context["testimonials"] = testimonials
+        context["certificates"] = certificates
+        context["blogs"] = blogs
+        context["portfolio"] = portfolio
+        return context
+
 
 class PortfolioDetailView(generic.DetailView):
 	model = portfolio
