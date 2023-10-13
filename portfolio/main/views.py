@@ -2,7 +2,12 @@ from typing import Any
 from django.shortcuts import render
 from django.contrib import messages
 
-from .models import( UserProfile, portfolio , certificate , contactprofile , Blog , Testimonial)
+from .models import( UserProfile, 
+					portfolio ,
+					certificate ,
+					contactprofile ,
+					Blog ,
+					Testimonial)
 
 from .forms import contactform
 

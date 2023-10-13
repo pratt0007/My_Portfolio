@@ -3,10 +3,13 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 # Create your models here.
 
-from ckeditor.fields import RichTextField\
+from ckeditor.fields import RichTextField
 
 
 class skill(models.Model):
+    class Meta:
+        verbose_name_plural = 'Skills'
+        verbose_name = 'Skill'
     name = models.CharField(max_length=20, blank = True, null = True)
     score = models.IntegerField(default= 80 , blank = True , null = True)
     image = models.FileField(blank = True , null = True , upload_to="skills")
@@ -16,6 +19,9 @@ class skill(models.Model):
         return self.name
 
 class UserProfile(models.Model):
+    class Meta:
+        verbose_name_plural = 'User Profiles'
+        verbose_name = 'User Profile'
 
     user = models.OneToOneField(User , on_delete=models.CASCADE)
     avatar = models.ImageField(blank = True, null = True , upload_to="avatar")
@@ -30,7 +36,7 @@ class UserProfile(models.Model):
 
 class contactprofile(models.Model):
 
-
+    
     timestamp = models.DateTimeField(auto_now_add=True)
     name = models.CharField(verbose_name="Name",max_length=100)
     email = models.EmailField(verbose_name="Email")
