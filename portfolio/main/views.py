@@ -3,9 +3,9 @@ from django.shortcuts import render
 from django.contrib import messages
 
 from .models import( UserProfile, 
-					portfolio ,
-					certificate ,
-					contactprofile ,
+					Portfolio ,
+					Certificate ,
+					Contactprofile ,
 					Blog ,
 					Testimonial)
 
@@ -20,7 +20,7 @@ class IndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         testimonials = Testimonial.objects.filter(is_active=True)
-        certificates = certificate.objects.filter(is_active=True)
+        certificates = Certificate.objects.filter(is_active=True)
         blogs = Blog.objects.filter(is_active=True)
         # portfolio = portfolio.objects.filter(is_active=True)
         
@@ -32,13 +32,13 @@ class IndexView(generic.TemplateView):
 
 
 class PortfolioDetailView(generic.DetailView):
-	model = portfolio
+	model = Portfolio
 	template_name = "main/portfolio-detail.html"
 
 
 
 class PortfolioView(generic.ListView):
-	model = portfolio
+	model = Portfolio
 	template_name = "main/portfolio.html"
 	paginate_by = 10
 

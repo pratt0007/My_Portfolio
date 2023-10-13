@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 from ckeditor.fields import RichTextField
 
 
-class skill(models.Model):
+class Skill(models.Model):
     class Meta:
         verbose_name_plural = 'Skills'
         verbose_name = 'Skill'
@@ -34,7 +34,7 @@ class UserProfile(models.Model):
         return f'{self.user.first_name} {self.user.last_name}'
     
 
-class contactprofile(models.Model):
+class Contactprofile(models.Model):
 
     
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -64,7 +64,7 @@ class Media(models.Model):
     def __str__(self):
         return self.name
 
-class portfolio(models.Model):
+class Portfolio(models.Model):
 
     class Meta:
         verbose_name_plural = 'Portfolio Profiles'
@@ -89,7 +89,7 @@ class portfolio(models.Model):
     def get_absolute_url(self):
         return f"/portfolio/{self.slug}"
 
-class certificate(models.Model):
+class Certificate(models.Model):
     class Meta:
         verbose_name_plural = 'Certificates'
         verbose_name = 'Certificate'
