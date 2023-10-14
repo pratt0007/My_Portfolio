@@ -5,17 +5,20 @@ from ckeditor.fields import RichTextField
 
 
 class Skill(models.Model):
-    class Meta:
-        verbose_name_plural = 'Skills'
-        verbose_name = 'Skill'
+
     
     name = models.CharField(max_length=20, blank=True, null=True)
     score = models.IntegerField(default=80, blank=True, null=True)
     image = models.FileField(blank=True, null=True, upload_to="skills")
     is_key_skill = models.BooleanField(default=False)
+    class Meta:
+        verbose_name_plural = 'Skills'
+        verbose_name = 'Skill'
+        db_table = 'main_skill'
     
     def __str__(self):
         return self.name
+
 
 class UserProfile(models.Model):
 
@@ -27,11 +30,11 @@ class UserProfile(models.Model):
     avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
-    skills = models.ManyToManyField(Skill, blank=True)
+    skills = Skill.objects.all()        #gathers all entries from model Skill which is gathering from db_table main_skill
     cv = models.FileField(blank=True, null=True, upload_to="cv")
 
     def __str__(self):
-        return f'{self.user.first_name} {self.user.last_name}'
+        return f'{self.user.first_name} {self.user.last_name}''
 
 
 class ContactProfile(models.Model):
