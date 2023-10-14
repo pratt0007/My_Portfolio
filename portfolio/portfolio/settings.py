@@ -80,16 +80,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'portfolio',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': 'localhost',  # You can change this to your MySQL server's host
-#         'PORT': '3306',       # Default MySQL port
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'portfolio',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',  # You can change this to your MySQL server's host
+        'PORT': '3306',       # Default MySQL port
+    }
+}
 
 
 # Password validation
